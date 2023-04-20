@@ -1,0 +1,205 @@
+make_bird,bird_1,0.1,4,5,5
+> make_bird,bird_1,0.1,4,5,5
+OK:change_completed
+make_bird,bird_2,0.2,9,9,4
+> make_bird,bird_2,0.2,9,9,4
+OK:change_completed
+make_bird,bird_3,0.1,20,20,6
+> make_bird,bird_3,0.1,20,20,6
+OK:change_completed
+display_birds
+> display_birds
+birdID:bird_1,attackProbability:0.1,location:[4, 5],changeFrequency:5
+birdID:bird_2,attackProbability:0.2,location:[9, 9],changeFrequency:4
+birdID:bird_3,attackProbability:0.1,location:[20, 20],changeFrequency:6
+OK:display_completed
+set_num_birds, 80
+> set_num_birds, 80
+
+java.lang.NumberFormatException: For input string: " 80"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:651)
+	at java.base/java.lang.Integer.parseInt(Integer.java:781)
+	at edu.gatech.cs6310.DeliveryService.commandLoop(DeliveryService.java:415)
+	at Main.main(Main.java:8)
+set_num_birds,80
+> set_num_birds,80
+OK:change_completed
+display_birds
+> display_birds
+birdID:bird_1,attackProbability:0.1,location:[4, 5],changeFrequency:5
+birdID:bird_10,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_11,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_12,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_13,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_14,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_15,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_16,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_17,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_18,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_19,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_2,attackProbability:0.2,location:[9, 9],changeFrequency:4
+birdID:bird_20,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_21,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_22,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_23,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_24,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_25,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_26,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_27,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_28,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_29,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_3,attackProbability:0.1,location:[20, 20],changeFrequency:6
+birdID:bird_30,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_31,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_32,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_33,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_34,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_35,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_36,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_37,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_38,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_39,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_4,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_40,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_41,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_42,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_43,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_44,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_45,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_46,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_47,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_48,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_49,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_5,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_50,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_51,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_52,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_53,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_54,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_55,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_56,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_57,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_58,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_59,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_6,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_60,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_61,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_62,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_63,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_64,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_65,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_66,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_67,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_68,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_69,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_7,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_70,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_71,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_72,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_73,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_74,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_75,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_76,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_77,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_78,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_79,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_8,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_80,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_9,attackProbability:0.1,location:[0, 0],changeFrequency:1
+OK:display_completed
+make_store,kroger,33000,6,4
+> make_store,kroger,33000,6,4
+OK:change_completed
+sell_item,kroger,pot_roast,5
+> sell_item,kroger,pot_roast,5
+OK:change_completed
+sell_item,kroger,cheesecake,4
+> sell_item,kroger,cheesecake,4
+OK:change_completed
+display_items,kroger
+> display_items,kroger
+cheesecake,4
+pot_roast,5
+OK:display_completed
+make_pilot,ffig8,Finneas,Fig,888-888-8888,890-12-3456,panam_10,33
+> make_pilot,ffig8,Finneas,Fig,888-888-8888,890-12-3456,panam_10,33
+OK:change_completed
+make_pilot,ggrape17,Gillian,Grape,999-999-9999,234-56-7890,twa_21,31
+> make_pilot,ggrape17,Gillian,Grape,999-999-9999,234-56-7890,twa_21,31
+OK:change_completed
+make_drone,kroger,1,40,1,3
+> make_drone,kroger,1,40,1,3
+OK:change_completed
+make_drone,kroger,2,20,3,2
+> make_drone,kroger,2,20,3,2
+OK:change_completed
+fly_drone,kroger,1,ffig8
+> fly_drone,kroger,1,ffig8
+OK:change_completed
+make_customer,aapple2,Alana,Apple,222-222-2222,4,100,18,6
+> make_customer,aapple2,Alana,Apple,222-222-2222,4,100,18,6
+OK:change_completed
+make_customer,aapple2,Ariana,Asparagus,333-333-3333,5,150,6,12
+> make_customer,aapple2,Ariana,Asparagus,333-333-3333,5,150,6,12
+ERROR:customer_identifier_already_exists
+make_customer,ccherry4,Carlos,Cherry,444-444-4444,5,300,1,9
+> make_customer,ccherry4,Carlos,Cherry,444-444-4444,5,300,1,9
+OK:change_completed
+start_order,kroger,purchaseA,1,aapple2
+> start_order,kroger,purchaseA,1,aapple2
+OK:change_completed
+start_order,kroger,purchaseB,1,aapple2
+> start_order,kroger,purchaseB,1,aapple2
+OK:change_completed
+start_order,kroger,purchaseD,2,ccherry4
+> start_order,kroger,purchaseD,2,ccherry4
+OK:change_completed
+display_orders,kroger
+> display_orders,kroger
+orderID:purchaseA
+orderID:purchaseB
+orderID:purchaseD
+OK:display_completed
+request_item,kroger,purchaseA,pot_roast,3,10
+> request_item,kroger,purchaseA,pot_roast,3,10
+OK:change_completed
+request_item,kroger,purchaseB,pot_roast,4,5
+> request_item,kroger,purchaseB,pot_roast,4,5
+OK:change_completed
+request_item,kroger,purchaseD,cheesecake,1,10
+> request_item,kroger,purchaseD,cheesecake,1,10
+OK:change_completed
+purchase_order,kroger,purchaseA
+> purchase_order,kroger,purchaseA
+ERROR:drone_is_attacked_by_the_bird
+set_num_birds,3
+> set_num_birds,3
+OK:change_completed
+display_birds
+> display_birds
+birdID:bird_37,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_38,attackProbability:0.1,location:[0, 0],changeFrequency:1
+birdID:bird_80,attackProbability:0.1,location:[0, 0],changeFrequency:1
+OK:display_completed
+purchase_order,kroger,purchaseA
+> purchase_order,kroger,purchaseA
+ERROR:drone_is_attacked_by_the_bird
+set_num_birds,0
+> set_num_birds,0
+OK:change_completed
+display_birds
+> display_birds
+OK:display_completed
+purchase_order,kroger,purchaseA
+> purchase_order,kroger,purchaseA
+OK:change_completed
+purchase_order,kroger,purchaseB
+> purchase_order,kroger,purchaseB
+ERROR:drone_needs_fuel
+fly_drone,kroger,2,ffig8
+> fly_drone,kroger,2,ffig8
+OK:change_completed
+purchase_order,kroger,purchaseD
+> purchase_order,kroger,purchaseD
+OK:change_completed

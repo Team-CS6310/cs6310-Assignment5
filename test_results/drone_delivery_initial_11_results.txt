@@ -1,0 +1,178 @@
+Welcome to the Grocery Express Delivery Service!
+> // create stores
+> make_store,fresh_market,33000
+OK:change_completed
+> display_stores
+name:fresh_market,revenue:33000
+OK:display_completed
+> // create items to be sold by stores
+> sell_item,fresh_market,bacon,3
+OK:change_completed
+> display_items,fresh_market
+bacon,3
+OK:display_completed
+> // create pilots to fly the drones
+> make_pilot,alal,Alan,Alexander,888-888-8888,890-12-3456,panam_10,33
+OK:change_completed
+> make_pilot,giga,Gina,Garcia,888-888-8888,890-12-3456,panam_11,33
+OK:change_completed
+> make_pilot,pepa,Peter,Parsons,888-888-8888,890-12-3456,panam_12,33
+OK:change_completed
+> display_pilots
+name:Alan_Alexander,phone:888-888-8888,taxID:890-12-3456,licenseID:panam_10,experience:33
+name:Gina_Garcia,phone:888-888-8888,taxID:890-12-3456,licenseID:panam_11,experience:33
+name:Peter_Parsons,phone:888-888-8888,taxID:890-12-3456,licenseID:panam_12,experience:33
+OK:display_completed
+> // create drones to deliver the groceries
+> make_drone,fresh_market,1,10,3
+OK:change_completed
+> make_drone,fresh_market,2,5,0
+OK:change_completed
+> make_drone,fresh_market,3,6,2
+OK:change_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:0,remaining_cap:10,trips_left:3
+droneID:2,total_cap:5,num_orders:0,remaining_cap:5,trips_left:0
+droneID:3,total_cap:6,num_orders:0,remaining_cap:6,trips_left:2
+OK:display_completed
+> // assign a pilot to fly a specific drone
+> fly_drone,fresh_market,1,alal
+OK:change_completed
+> fly_drone,fresh_market,2,giga
+OK:change_completed
+> fly_drone,fresh_market,3,pepa
+OK:change_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:0,remaining_cap:10,trips_left:3,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:0,remaining_cap:5,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:0,remaining_cap:6,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> // create customers to purchase items
+> make_customer,aapple2,Alana,Apple,222-222-2222,4,1000
+OK:change_completed
+> display_customers
+name:Alana_Apple,phone:222-222-2222,rating:4,credit:1000
+OK:display_completed
+> // create orders which will contain collections of items
+> start_order,fresh_market,ordA,1,aapple2
+OK:change_completed
+> start_order,fresh_market,ordB,1,aapple2
+OK:change_completed
+> start_order,fresh_market,ordC,2,aapple2
+OK:change_completed
+> start_order,fresh_market,ordD,3,aapple2
+OK:change_completed
+> display_orders,fresh_market
+orderID:ordA
+orderID:ordB
+orderID:ordC
+orderID:ordD
+OK:display_completed
+> // add items to the orders
+> request_item,fresh_market,ordA,bacon,1,5
+OK:change_completed
+> request_item,fresh_market,ordB,bacon,1,5
+OK:change_completed
+> // test transfer_order [24]
+> display_orders,fresh_market
+orderID:ordA
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordB
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordC
+orderID:ordD
+OK:display_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:2,remaining_cap:4,trips_left:3,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:1,remaining_cap:5,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:1,remaining_cap:6,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> // we add an item to order ordC, and then fail to transfer order ordB from drone #1 to drone #2
+> request_item,fresh_market,ordC,bacon,1,5
+OK:change_completed
+> transfer_order,fresh_market,ordB,2
+ERROR:new_drone_does_not_have_enough_capacity
+> display_orders,fresh_market
+orderID:ordA
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordB
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordC
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordD
+OK:display_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:2,remaining_cap:4,trips_left:3,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:1,remaining_cap:2,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:1,remaining_cap:6,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> // we add an item to order ordD, and then successfully transfer order ordC from drone #2 to drone #3
+> request_item,fresh_market,ordD,bacon,1,5
+OK:change_completed
+> transfer_order,fresh_market,ordC,3
+OK:change_completed
+> display_orders,fresh_market
+orderID:ordA
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordB
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordC
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+orderID:ordD
+item_name:bacon,total_quantity:1,total_cost:5,total_weight:3
+OK:display_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:2,remaining_cap:4,trips_left:3,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:0,remaining_cap:5,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:2,remaining_cap:0,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> // we initiate three different transfers, though the second transfer – of order ordC – isn’t really implemented because ordC is already being held by drone #3
+> transfer_order,fresh_market,ordD,1
+OK:change_completed
+> transfer_order,fresh_market,ordC,3
+OK:new_drone_is_current_drone_no_change
+> transfer_order,fresh_market,ordC,2
+OK:change_completed
+> // test display_efficiency [25]
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:3,remaining_cap:1,trips_left:3,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:1,remaining_cap:2,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:0,remaining_cap:6,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> // deliver an order from Fresh Market and display the updated state
+> display_efficiency
+name:fresh_market,purchases:0,overloads:0,transfers:3
+OK:display_completed
+> purchase_order,fresh_market,ordA
+OK:change_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:2,remaining_cap:4,trips_left:2,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:1,remaining_cap:2,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:0,remaining_cap:6,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> display_efficiency
+name:fresh_market,purchases:1,overloads:2,transfers:3
+OK:display_completed
+> purchase_order,fresh_market,ordB
+OK:change_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:1,remaining_cap:7,trips_left:1,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:1,remaining_cap:2,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:0,remaining_cap:6,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> display_efficiency
+name:fresh_market,purchases:2,overloads:3,transfers:3
+OK:display_completed
+> purchase_order,fresh_market,ordD
+OK:change_completed
+> display_drones,fresh_market
+droneID:1,total_cap:10,num_orders:0,remaining_cap:10,trips_left:0,flown_by:Alan_Alexander
+droneID:2,total_cap:5,num_orders:1,remaining_cap:2,trips_left:0,flown_by:Gina_Garcia
+droneID:3,total_cap:6,num_orders:0,remaining_cap:6,trips_left:2,flown_by:Peter_Parsons
+OK:display_completed
+> display_efficiency
+name:fresh_market,purchases:3,overloads:3,transfers:3
+OK:display_completed
+> stop
+stop acknowledged
+simulation terminated

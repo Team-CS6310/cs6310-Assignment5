@@ -1,0 +1,64 @@
+// create stores
+make_store,fresh_market,33000
+display_stores
+// create items to be sold by stores
+sell_item,fresh_market,bacon,3
+display_items,fresh_market
+// create pilots to fly the drones
+make_pilot,alal,Alan,Alexander,888-888-8888,890-12-3456,panam_10,33
+make_pilot,giga,Gina,Garcia,888-888-8888,890-12-3456,panam_11,33
+make_pilot,pepa,Peter,Parsons,888-888-8888,890-12-3456,panam_12,33
+display_pilots
+// create drones to deliver the groceries
+make_drone,fresh_market,1,10,3
+make_drone,fresh_market,2,5,0
+make_drone,fresh_market,3,6,2
+display_drones,fresh_market
+// assign a pilot to fly a specific drone
+fly_drone,fresh_market,1,alal
+fly_drone,fresh_market,2,giga
+fly_drone,fresh_market,3,pepa
+display_drones,fresh_market
+// create customers to purchase items
+make_customer,aapple2,Alana,Apple,222-222-2222,4,1000
+display_customers
+// create orders which will contain collections of items
+start_order,fresh_market,ordA,1,aapple2
+start_order,fresh_market,ordB,1,aapple2
+start_order,fresh_market,ordC,2,aapple2
+start_order,fresh_market,ordD,3,aapple2
+display_orders,fresh_market
+// add items to the orders
+request_item,fresh_market,ordA,bacon,1,5
+request_item,fresh_market,ordB,bacon,1,5
+// test transfer_order [24]
+display_orders,fresh_market
+display_drones,fresh_market
+// we add an item to order ordC, and then fail to transfer order ordB from drone #1 to drone #2
+request_item,fresh_market,ordC,bacon,1,5
+transfer_order,fresh_market,ordB,2
+display_orders,fresh_market
+display_drones,fresh_market
+// we add an item to order ordD, and then successfully transfer order ordC from drone #2 to drone #3
+request_item,fresh_market,ordD,bacon,1,5
+transfer_order,fresh_market,ordC,3
+display_orders,fresh_market
+display_drones,fresh_market
+// we initiate three different transfers, though the second transfer – of order ordC – isn’t really implemented because ordC is already being held by drone #3
+transfer_order,fresh_market,ordD,1
+transfer_order,fresh_market,ordC,3
+transfer_order,fresh_market,ordC,2
+// test display_efficiency [25]
+display_drones,fresh_market
+// deliver an order from Fresh Market and display the updated state
+display_efficiency
+purchase_order,fresh_market,ordA
+display_drones,fresh_market
+display_efficiency
+purchase_order,fresh_market,ordB
+display_drones,fresh_market
+display_efficiency
+purchase_order,fresh_market,ordD
+display_drones,fresh_market
+display_efficiency
+stop

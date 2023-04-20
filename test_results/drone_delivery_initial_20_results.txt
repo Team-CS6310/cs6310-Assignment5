@@ -1,0 +1,26 @@
+Welcome to the Grocery Express Delivery Service!
+> // create a single store
+> make_store,fresh_market,57000
+OK:change_completed
+> // create an item to be sold in the store
+> sell_item,fresh_market,bacon,3
+OK:change_completed
+> // create a drone
+> make_drone,fresh_market,1,50,2
+OK:change_completed
+> // create a customer
+> make_customer,carli2,Chanel,Cortez,666-666-6666,4,100
+OK:change_completed
+> // create an order
+> start_order,fresh_market,ordA,1,carli2
+OK:change_completed
+> // add an item to the order
+> request_item,fresh_market,ordA,bacon,3,5
+OK:change_completed
+> display_orders,fresh_market
+orderID:ordA
+item_name:bacon,total_quantity:3,total_cost:15,total_weight:9
+OK:display_completed
+> stop
+stop acknowledged
+simulation terminated

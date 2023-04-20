@@ -1,0 +1,9 @@
+// create a single store
+make_store,fresh_market,57000
+// create multiple drones to deliver the orders
+make_drone,fresh_market,3,100,6
+make_drone,fresh_market,1,50,2
+make_drone,fresh_market,2,75,3
+// display the drones in order of their drone ID
+display_drones,fresh_market
+stop

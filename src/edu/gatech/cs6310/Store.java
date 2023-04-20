@@ -8,6 +8,8 @@ public class Store {
     public int purchases;
     public int overloads;
 
+    private int[] location; // x=location[0],y=location[y]
+
 
 
 
@@ -16,9 +18,10 @@ public class Store {
     public Map<String, Drone> drones; // drone ID -> drone object
     public Map<String, Order> orders; // order ID -> order
 
-    public Store(String storeName, int revenue) {
+    public Store(String storeName, int revenue, int location_x, int location_y) {
         this.storeName = storeName;
         this.revenue = revenue;
+        this.location = new int[]{location_x, location_y};
         this.catalog = new HashMap<String, Integer>();
         this.drones = new HashMap<>();
         this.orders = new HashMap<>();
@@ -41,6 +44,16 @@ public class Store {
     }
     public int getOverloads(){
         return overloads;
+    }
+
+    public int[] getLocation(){
+        return location;
+    }
+
+    public void setLocation(int location_x, int location_y){
+        this.location[0] = location_x;
+        this.location[1] = location_y;
+
     }
     public HashMap<String, Order> getOrders() {
         return (HashMap<String, Order>) orders;
@@ -86,12 +99,12 @@ public class Store {
         }
     }
 
-    public String make_drone(Store store, String droneID, int capacity, int fuel) {
+    public String make_drone(Store store, String droneID, int capacity, int fuel, int flySpeed) {
         // Check if the drone identifier already exists
         if (drones.containsKey(droneID)) {
             return "ERROR:drone_identifier_already_exists";
         }else{
-            Drone drone = new Drone(store, droneID, capacity, fuel);
+            Drone drone = new Drone(store, droneID, capacity, fuel, flySpeed);
             drones.put(droneID, drone);
         }
         return "OK:change_completed";
@@ -111,7 +124,7 @@ public class Store {
             }
             System.out.println("droneID:" + droneID + ",total_cap:" + drone.getCapacity() +
                     ",num_orders:" + drone.getNum_orders() + ",remaining_cap:" + drone.getRemainingCapacity() +
-                    ",trips_left:" + drone.getFuel() + flownBy);
+                    ",trips_left:" + drone.getFuel() + ",flySpeed:" + drone.getFlySpeed() + flownBy);
         }
 
         return "OK:display_completed";
@@ -151,6 +164,10 @@ public class Store {
         this.purchases += 1;
     }
 
+    public void birdAttack(String orderID) {
+        this.revenue -=50;
+    }
+
     public void cancelOrder(String orderID){
         this.orders.remove(orderID);
     }
@@ -163,6 +180,8 @@ public class Store {
         this.overloads += addon;
         return overloads;
     }
+
+
 }
 
 

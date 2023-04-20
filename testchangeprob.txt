@@ -1,0 +1,143 @@
+make_bird,bird_1,0.25,4,5,15
+> make_bird,bird_1,0.25,4,5,15
+OK:change_completed
+make_bird,bird_2,0.75,9,9,4
+> make_bird,bird_2,0.75,9,9,4
+OK:change_completed
+make_bird,bird_3,0.45,20,20,6
+> make_bird,bird_3,0.45,20,20,6
+OK:change_completed
+make_bird,bird_2,0.75,9,9,4
+> make_bird,bird_2,0.75,9,9,4
+ERROR:bird_identifier_already_exists
+display_birds
+> display_birds
+birdID:bird_1,attackProbability:0.25,location:[4, 5],changeFrequency:15
+birdID:bird_2,attackProbability:0.75,location:[9, 9],changeFrequency:4
+birdID:bird_3,attackProbability:0.45,location:[20, 20],changeFrequency:6
+OK:display_completed
+set_bird_attack_prob,bird_1,0.01
+> set_bird_attack_prob,bird_1,0.01
+OK:change_completed
+display_birds
+> display_birds
+birdID:bird_1,attackProbability:0.01,location:[4, 5],changeFrequency:15
+birdID:bird_2,attackProbability:0.75,location:[9, 9],changeFrequency:4
+birdID:bird_3,attackProbability:0.45,location:[20, 20],changeFrequency:6
+OK:display_completed
+set_bird_attack_prob,bird_3,0.05
+> set_bird_attack_prob,bird_3,0.05
+OK:change_completed
+display_birds
+> display_birds
+birdID:bird_1,attackProbability:0.01,location:[4, 5],changeFrequency:15
+birdID:bird_2,attackProbability:0.75,location:[9, 9],changeFrequency:4
+birdID:bird_3,attackProbability:0.05,location:[20, 20],changeFrequency:6
+OK:display_completed
+set_bird_attack_prob,bird_2,0.01
+> set_bird_attack_prob,bird_2,0.01
+OK:change_completed
+make_store,kroger,33000,6,4
+> make_store,kroger,33000,6,4
+OK:change_completed
+display_stores
+> display_stores
+name:kroger,revenue:33000,location:[6, 4]
+OK:display_completed
+sell_item,kroger,pot_roast,5
+> sell_item,kroger,pot_roast,5
+OK:change_completed
+sell_item,kroger,cheesecake,4
+> sell_item,kroger,cheesecake,4
+OK:change_completed
+display_items,kroger
+> display_items,kroger
+cheesecake,4
+pot_roast,5
+OK:display_completed
+make_pilot,ffig8,Finneas,Fig,888-888-8888,890-12-3456,panam_10,33
+> make_pilot,ffig8,Finneas,Fig,888-888-8888,890-12-3456,panam_10,33
+OK:change_completed
+make_pilot,ggrape17,Gillian,Grape,999-999-9999,234-56-7890,twa_21,31
+> make_pilot,ggrape17,Gillian,Grape,999-999-9999,234-56-7890,twa_21,31
+OK:change_completed
+make_pilot,ffig8,Frances,Faro,777-777-7777,678-90-1234,eastern_6,36
+> make_pilot,ffig8,Frances,Faro,777-777-7777,678-90-1234,eastern_6,36
+ERROR:pilot_identifier_already_exists
+make_drone,kroger,1,40,1,3
+> make_drone,kroger,1,40,1,3
+OK:change_completed
+make_drone,kroger,2,20,3,2
+> make_drone,kroger,2,20,3,2
+OK:change_completed
+display_drones,kroger
+> display_drones,kroger
+droneID:1,total_cap:40,num_orders:0,remaining_cap:40,trips_left:1,flySpeed:3
+droneID:2,total_cap:20,num_orders:0,remaining_cap:20,trips_left:3,flySpeed:2
+OK:display_completed
+fly_drone,kroger,1,ffig8
+> fly_drone,kroger,1,ffig8
+OK:change_completed
+make_customer,aapple2,Alana,Apple,222-222-2222,4,100,18,6
+> make_customer,aapple2,Alana,Apple,222-222-2222,4,100,18,6
+OK:change_completed
+make_customer,aapple2,Ariana,Asparagus,333-333-3333,5,150,6,12
+> make_customer,aapple2,Ariana,Asparagus,333-333-3333,5,150,6,12
+ERROR:customer_identifier_already_exists
+make_customer,ccherry4,Carlos,Cherry,444-444-4444,5,300,1,9
+> make_customer,ccherry4,Carlos,Cherry,444-444-4444,5,300,1,9
+OK:change_completed
+start_order,kroger,purchaseA,1,aapple2
+> start_order,kroger,purchaseA,1,aapple2
+OK:change_completed
+start_order,kroger,purchaseB,1,aapple2
+> start_order,kroger,purchaseB,1,aapple2
+OK:change_completed
+start_order,kroger,purchaseD,2,ccherry4
+> start_order,kroger,purchaseD,2,ccherry4
+OK:change_completed
+display_orders,kroger
+> display_orders,kroger
+orderID:purchaseA
+orderID:purchaseB
+orderID:purchaseD
+OK:display_completed
+request_item,kroger,purchaseA,pot_roast,3,10
+> request_item,kroger,purchaseA,pot_roast,3,10
+OK:change_completed
+request_item,kroger,purchaseB,pot_roast,4,5
+> request_item,kroger,purchaseB,pot_roast,4,5
+OK:change_completed
+request_item,kroger,purchaseD,cheesecake,1,10
+> request_item,kroger,purchaseD,cheesecake,1,10
+OK:change_completed
+purchase_order,kroger,purchaseA
+> purchase_order,kroger,purchaseA
+OK:change_completed
+set_bird_attack_prob,bird_1,0.6
+> set_bird_attack_prob,bird_1,0.6
+OK:change_completed
+set_bird_attack_prob,bird_2,0.8
+> set_bird_attack_prob,bird_2,0.8
+OK:change_completed
+set_bird_attack_prob,bird_3,0.4
+> set_bird_attack_prob,bird_3,0.4
+OK:change_completed
+display_birds
+> display_birds
+birdID:bird_1,attackProbability:0.6,location:[4, 5],changeFrequency:15
+birdID:bird_2,attackProbability:0.8,location:[9, 9],changeFrequency:4
+birdID:bird_3,attackProbability:0.4,location:[20, 20],changeFrequency:6
+OK:display_completed
+purchase_order,kroger,purchaseB
+> purchase_order,kroger,purchaseB
+ERROR:drone_needs_fuel
+purchase_order,kroger,purchaseD
+> purchase_order,kroger,purchaseD
+ERROR:drone_needs_pilot
+fly_drone,kroger,2,ffig8
+> fly_drone,kroger,2,ffig8
+OK:change_completed
+purchase_order,kroger,purchaseD
+> purchase_order,kroger,purchaseD
+ERROR:drone_is_attacked_by_the_bird

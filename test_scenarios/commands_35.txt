@@ -1,0 +1,60 @@
+// create multiple stores
+make_store,fresh_market,57000
+display_stores
+// create multiple items to be sold by stores
+sell_item,fresh_market,bacon,3
+sell_item,fresh_market,lamb,6
+sell_item,fresh_market,mushrooms,3
+sell_item,fresh_market,salmon,4
+sell_item,fresh_market,sushi,3
+display_items,fresh_market
+// create multiple pilots to control the drones
+make_pilot,alan2,Alan,Alexander,111-111-1111,111-11-1111,lic_2,4
+make_pilot,gina3,Gina,Garcia,222-222-2222,222-22-2222,lic_3,6
+display_pilots
+// create multiple drones to deliver the orders
+make_drone,fresh_market,1,50,2
+make_drone,fresh_market,2,75,3
+display_drones,fresh_market
+// create multiple customers to purchase items
+make_customer,carli2,Chanel,Cortez,666-666-6666,4,100
+make_customer,olivia7,Olivia,Olson,999-999-9999,4,300
+display_customers
+// assign pilots to fly the drones
+fly_drone,fresh_market,1,alan2
+fly_drone,fresh_market,2,gina3
+display_drones,fresh_market
+// create multiple orders as requested by customers
+start_order,fresh_market,ordB,1,carli2
+start_order,fresh_market,ordC,2,olivia7
+display_orders,fresh_market
+// add multiple items to the orders
+request_item,fresh_market,ordB,lamb,2,8
+request_item,fresh_market,ordB,mushrooms,1,4
+request_item,fresh_market,ordB,salmon,2,11
+request_item,fresh_market,ordC,lamb,1,8
+request_item,fresh_market,ordC,mushrooms,3,3
+request_item,fresh_market,ordC,salmon,1,11
+request_item,fresh_market,ordC,sushi,1,20
+display_orders,fresh_market
+// display the state for the Fresh Market store
+display_stores
+display_customers
+display_orders,fresh_market
+display_drones,fresh_market
+display_pilots
+// deliver an order from Fresh Market and display the updated state
+purchase_order,fresh_market,ordB
+display_stores
+display_customers
+display_orders,fresh_market
+display_drones,fresh_market
+display_pilots
+// cancel an order from Fresh Market and display the updated state
+cancel_order,fresh_market,ordC
+display_stores
+display_customers
+display_orders,fresh_market
+display_drones,fresh_market
+display_pilots
+stop

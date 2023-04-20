@@ -12,6 +12,7 @@ public class Customer {
     private int rating;
     private int credit;
     private int pendingCredit;
+    private final int[] location; // x=location[0],y=location[y]
     private Map<String, Order> orders;
 
 
@@ -19,14 +20,15 @@ public class Customer {
 
 
 
-    public Customer(String customerID, String firstName, String lastName, String phoneNumber, int rating, int credit){
+
+    public Customer(String customerID, String firstName, String lastName, String phoneNumber, int rating, int credit, int location_x, int location_y){
         this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.rating = rating;
         this.credit = credit;
-        this.address = address;
+        this.location = new int[]{location_x, location_y};;
         this.pendingCredit = credit;
         this.orders = new HashMap<>();
     }
@@ -74,13 +76,15 @@ public class Customer {
     public int getCredit() {
         return credit;
     }
+    public int[] getLocation(){
+        return location;
+    }
 
+    public void setLocation(int location_x, int location_y){
+        this.location[0] = location_x;
+        this.location[1] = location_y;
 
-
-
-
-
-
+    }
 
 
 
@@ -103,6 +107,10 @@ public class Customer {
         this.orders.remove(orderID);
     }
 
+
+    public void droneAttacked(String orderID) {
+        this.credit +=10;
+    }
     public void cancelOrder(String orderID){
         this.orders.remove(orderID);
     }

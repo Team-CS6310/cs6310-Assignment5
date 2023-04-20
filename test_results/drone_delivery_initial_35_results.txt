@@ -1,0 +1,171 @@
+Welcome to the Grocery Express Delivery Service!
+> // create multiple stores
+> make_store,fresh_market,57000
+OK:change_completed
+> display_stores
+name:fresh_market,revenue:57000
+OK:display_completed
+> // create multiple items to be sold by stores
+> sell_item,fresh_market,bacon,3
+OK:change_completed
+> sell_item,fresh_market,lamb,6
+OK:change_completed
+> sell_item,fresh_market,mushrooms,3
+OK:change_completed
+> sell_item,fresh_market,salmon,4
+OK:change_completed
+> sell_item,fresh_market,sushi,3
+OK:change_completed
+> display_items,fresh_market
+bacon,3
+lamb,6
+mushrooms,3
+salmon,4
+sushi,3
+OK:display_completed
+> // create multiple pilots to control the drones
+> make_pilot,alan2,Alan,Alexander,111-111-1111,111-11-1111,lic_2,4
+OK:change_completed
+> make_pilot,gina3,Gina,Garcia,222-222-2222,222-22-2222,lic_3,6
+OK:change_completed
+> display_pilots
+name:Alan_Alexander,phone:111-111-1111,taxID:111-11-1111,licenseID:lic_2,experience:4
+name:Gina_Garcia,phone:222-222-2222,taxID:222-22-2222,licenseID:lic_3,experience:6
+OK:display_completed
+> // create multiple drones to deliver the orders
+> make_drone,fresh_market,1,50,2
+OK:change_completed
+> make_drone,fresh_market,2,75,3
+OK:change_completed
+> display_drones,fresh_market
+droneID:1,total_cap:50,num_orders:0,remaining_cap:50,trips_left:2
+droneID:2,total_cap:75,num_orders:0,remaining_cap:75,trips_left:3
+OK:display_completed
+> // create multiple customers to purchase items
+> make_customer,carli2,Chanel,Cortez,666-666-6666,4,100
+OK:change_completed
+> make_customer,olivia7,Olivia,Olson,999-999-9999,4,300
+OK:change_completed
+> display_customers
+name:Chanel_Cortez,phone:666-666-6666,rating:4,credit:100
+name:Olivia_Olson,phone:999-999-9999,rating:4,credit:300
+OK:display_completed
+> // assign pilots to fly the drones
+> fly_drone,fresh_market,1,alan2
+OK:change_completed
+> fly_drone,fresh_market,2,gina3
+OK:change_completed
+> display_drones,fresh_market
+droneID:1,total_cap:50,num_orders:0,remaining_cap:50,trips_left:2,flown_by:Alan_Alexander
+droneID:2,total_cap:75,num_orders:0,remaining_cap:75,trips_left:3,flown_by:Gina_Garcia
+OK:display_completed
+> // create multiple orders as requested by customers
+> start_order,fresh_market,ordB,1,carli2
+OK:change_completed
+> start_order,fresh_market,ordC,2,olivia7
+OK:change_completed
+> display_orders,fresh_market
+orderID:ordB
+orderID:ordC
+OK:display_completed
+> // add multiple items to the orders
+> request_item,fresh_market,ordB,lamb,2,8
+OK:change_completed
+> request_item,fresh_market,ordB,mushrooms,1,4
+OK:change_completed
+> request_item,fresh_market,ordB,salmon,2,11
+OK:change_completed
+> request_item,fresh_market,ordC,lamb,1,8
+OK:change_completed
+> request_item,fresh_market,ordC,mushrooms,3,3
+OK:change_completed
+> request_item,fresh_market,ordC,salmon,1,11
+OK:change_completed
+> request_item,fresh_market,ordC,sushi,1,20
+OK:change_completed
+> display_orders,fresh_market
+orderID:ordB
+item_name:lamb,total_quantity:2,total_cost:16,total_weight:12
+item_name:mushrooms,total_quantity:1,total_cost:4,total_weight:3
+item_name:salmon,total_quantity:2,total_cost:22,total_weight:8
+orderID:ordC
+item_name:lamb,total_quantity:1,total_cost:8,total_weight:6
+item_name:mushrooms,total_quantity:3,total_cost:9,total_weight:9
+item_name:salmon,total_quantity:1,total_cost:11,total_weight:4
+item_name:sushi,total_quantity:1,total_cost:20,total_weight:3
+OK:display_completed
+> // display the state for the Fresh Market store
+> display_stores
+name:fresh_market,revenue:57000
+OK:display_completed
+> display_customers
+name:Chanel_Cortez,phone:666-666-6666,rating:4,credit:100
+name:Olivia_Olson,phone:999-999-9999,rating:4,credit:300
+OK:display_completed
+> display_orders,fresh_market
+orderID:ordB
+item_name:lamb,total_quantity:2,total_cost:16,total_weight:12
+item_name:mushrooms,total_quantity:1,total_cost:4,total_weight:3
+item_name:salmon,total_quantity:2,total_cost:22,total_weight:8
+orderID:ordC
+item_name:lamb,total_quantity:1,total_cost:8,total_weight:6
+item_name:mushrooms,total_quantity:3,total_cost:9,total_weight:9
+item_name:salmon,total_quantity:1,total_cost:11,total_weight:4
+item_name:sushi,total_quantity:1,total_cost:20,total_weight:3
+OK:display_completed
+> display_drones,fresh_market
+droneID:1,total_cap:50,num_orders:1,remaining_cap:27,trips_left:2,flown_by:Alan_Alexander
+droneID:2,total_cap:75,num_orders:1,remaining_cap:53,trips_left:3,flown_by:Gina_Garcia
+OK:display_completed
+> display_pilots
+name:Alan_Alexander,phone:111-111-1111,taxID:111-11-1111,licenseID:lic_2,experience:4
+name:Gina_Garcia,phone:222-222-2222,taxID:222-22-2222,licenseID:lic_3,experience:6
+OK:display_completed
+> // deliver an order from Fresh Market and display the updated state
+> purchase_order,fresh_market,ordB
+OK:change_completed
+> display_stores
+name:fresh_market,revenue:57042
+OK:display_completed
+> display_customers
+name:Chanel_Cortez,phone:666-666-6666,rating:4,credit:58
+name:Olivia_Olson,phone:999-999-9999,rating:4,credit:300
+OK:display_completed
+> display_orders,fresh_market
+orderID:ordC
+item_name:lamb,total_quantity:1,total_cost:8,total_weight:6
+item_name:mushrooms,total_quantity:3,total_cost:9,total_weight:9
+item_name:salmon,total_quantity:1,total_cost:11,total_weight:4
+item_name:sushi,total_quantity:1,total_cost:20,total_weight:3
+OK:display_completed
+> display_drones,fresh_market
+droneID:1,total_cap:50,num_orders:0,remaining_cap:50,trips_left:1,flown_by:Alan_Alexander
+droneID:2,total_cap:75,num_orders:1,remaining_cap:53,trips_left:3,flown_by:Gina_Garcia
+OK:display_completed
+> display_pilots
+name:Alan_Alexander,phone:111-111-1111,taxID:111-11-1111,licenseID:lic_2,experience:5
+name:Gina_Garcia,phone:222-222-2222,taxID:222-22-2222,licenseID:lic_3,experience:6
+OK:display_completed
+> // cancel an order from Fresh Market and display the updated state
+> cancel_order,fresh_market,ordC
+OK:change_completed
+> display_stores
+name:fresh_market,revenue:57042
+OK:display_completed
+> display_customers
+name:Chanel_Cortez,phone:666-666-6666,rating:4,credit:58
+name:Olivia_Olson,phone:999-999-9999,rating:4,credit:300
+OK:display_completed
+> display_orders,fresh_market
+OK:display_completed
+> display_drones,fresh_market
+droneID:1,total_cap:50,num_orders:0,remaining_cap:50,trips_left:1,flown_by:Alan_Alexander
+droneID:2,total_cap:75,num_orders:0,remaining_cap:75,trips_left:3,flown_by:Gina_Garcia
+OK:display_completed
+> display_pilots
+name:Alan_Alexander,phone:111-111-1111,taxID:111-11-1111,licenseID:lic_2,experience:5
+name:Gina_Garcia,phone:222-222-2222,taxID:222-22-2222,licenseID:lic_3,experience:6
+OK:display_completed
+> stop
+stop acknowledged
+simulation terminated

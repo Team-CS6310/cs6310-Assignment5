@@ -1,0 +1,20 @@
+Welcome to the Grocery Express Delivery Service!
+> // create a single store
+> make_store,fresh_market,57000
+OK:change_completed
+> // create multiple drones to deliver the orders
+> make_drone,fresh_market,3,100,6
+OK:change_completed
+> make_drone,fresh_market,1,50,2
+OK:change_completed
+> make_drone,fresh_market,2,75,3
+OK:change_completed
+> // display the drones in order of their drone ID
+> display_drones,fresh_market
+droneID:1,total_cap:50,num_orders:0,remaining_cap:50,trips_left:2
+droneID:2,total_cap:75,num_orders:0,remaining_cap:75,trips_left:3
+droneID:3,total_cap:100,num_orders:0,remaining_cap:100,trips_left:6
+OK:display_completed
+> stop
+stop acknowledged
+simulation terminated
