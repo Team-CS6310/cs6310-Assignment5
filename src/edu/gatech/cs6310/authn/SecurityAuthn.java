@@ -3,7 +3,7 @@ package edu.gatech.cs6310.authn;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.login.*;
 import java.io.IOException;
-import java.net.URL;
+
 public class SecurityAuthn {
     private static final String SECURITY_CONFIG_FILE = "security_jaas.config";
     public static void main(String[] args) throws IOException {
@@ -21,7 +21,7 @@ public class SecurityAuthn {
 
         System.out.println("Read security config file: " + path);
 */
-        System.setProperty("java.security.auth.login.config","security_jass.config");
+        System.setProperty("java.security.auth.login.config","/Users/estherwang/IdeaProjects/cs6310-Assignment5/src/edu/gatech/cs6310/resources/security_jaas.config");
         LoginContext lc = null;
         try {
             lc = new LoginContext("Sample", (CallbackHandler) new SecurityCallbackHandler());
